@@ -40,6 +40,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
       emailType: "VERIFY",
       userId: savedUser._id,
     });
+    console.log(mainResponse);
 
     return NextResponse.json({
       message: "User created successfully",
