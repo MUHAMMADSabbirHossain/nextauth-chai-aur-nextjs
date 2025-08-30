@@ -7,12 +7,12 @@ const userSchema = new mongoose.Schema({
     unique: true,
   },
   email: {
-    typeof: String,
+    type: String, // ✅ fixed (was typeof)
     required: [true, "Please provide an email"],
     unique: true,
   },
   password: {
-    typeof: String,
+    type: String, // ✅ fixed (was typeof)
     required: [true, "Please provide a password"],
   },
   isVerified: {
