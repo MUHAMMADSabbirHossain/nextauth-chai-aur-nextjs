@@ -8,8 +8,10 @@ async function sendEmail({ email, emailType, userId }: any) {
 
     if (emailType === "VERIFY") {
       await User.findByIdAndUpdate(userId, {
-        verifyToken: hashedToken,
-        verifyTokenExpiry: Date.now() + 3600000,
+        $set: {
+          verifyToken: hashedToken,
+          verifyTokenExpiry: Date.now() + 3600000, // 1 hour
+        },
       });
     } else if (emailType === "RESET") {
       await User.findByIdAndUpdate(userId, {
